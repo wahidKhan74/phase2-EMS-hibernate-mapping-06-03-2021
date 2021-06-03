@@ -63,6 +63,7 @@ public class ListEmployee extends HttpServlet {
 				out.print("<th> Salary</th>");
 				out.print("<th> Department</th>");
 				out.print("<th> Paroll</th>");
+				out.print("<th> Projects</th>");
 				out.print("</tr>");
 			for(Employee emp :listOfEmps) {
 				out.print("<tr>");
@@ -72,6 +73,7 @@ public class ListEmployee extends HttpServlet {
 				out.print("<td>"+emp.getSalary()+"</td>");
 				out.print("<td>"+emp.getDept()+"</td>");
 				out.print("<td>"+emp.getPayroll().toString()+"</td>");
+				out.print("<td>"+emp.getProjects().toString()+"</td>");
 				out.print("</tr>");
 			}
 			out.print("</table>");

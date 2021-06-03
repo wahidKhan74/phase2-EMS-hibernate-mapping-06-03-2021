@@ -1,5 +1,7 @@
 package com.mcit.webapp.entity;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,6 +40,10 @@ public class Employee {
 	@JoinColumn(name="emp_id")
 	private Payroll payroll;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private Set<Project> projects;
+	
+	
 	// constructor
 	public Employee() {
 		super();
@@ -49,6 +56,14 @@ public class Employee {
 		this.salary = salary;
 		this.dept = dept;
 		this.payroll = payroll;
+	}
+
+	public Employee(String firstName, String lastName, double salary, String dept) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.salary = salary;
+		this.dept = dept;
 	}
 
 	// getter and setter methods
@@ -98,6 +113,14 @@ public class Employee {
 
 	public void setPayroll(Payroll payroll) {
 		this.payroll = payroll;
+	}
+
+	public Set<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
 	}
 
 	// override toString()
