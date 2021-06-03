@@ -36,7 +36,7 @@ public class Employee {
 	@Column(name="dept")
 	private String dept;
 	
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumn(name="emp_id")
 	private Payroll payroll;
 	
