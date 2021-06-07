@@ -25,10 +25,6 @@ public class Project {
 	@Column(name = "project_title")
 	private String projectTitle;
 
-	@ManyToOne()
-	@JoinColumn(name="emp_id")
-	private Employee employee;
-	
 	
 	//constructor
 	public Project(String projectNo, String projectTitle) {
@@ -63,15 +59,6 @@ public class Project {
 
 	public void setProjectTitle(String projectTitle) {
 		this.projectTitle = projectTitle;
-	}
-
-	
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
 	}
 
 	// tostring

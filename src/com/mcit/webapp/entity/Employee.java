@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -40,7 +42,9 @@ public class Employee {
 	@JoinColumn(name="emp_id")
 	private Payroll payroll;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="employee")
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinTable(name="employee_project", joinColumns=@JoinColumn(name="emp_id"), 
+	inverseJoinColumns=@JoinColumn(name="project_id"))
 	private Set<Project> projects;
 	
 	
