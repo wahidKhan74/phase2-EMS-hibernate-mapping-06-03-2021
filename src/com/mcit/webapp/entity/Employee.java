@@ -40,7 +40,7 @@ public class Employee {
 	@JoinColumn(name="emp_id")
 	private Payroll payroll;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="employee")
 	private Set<Project> projects;
 	
 	

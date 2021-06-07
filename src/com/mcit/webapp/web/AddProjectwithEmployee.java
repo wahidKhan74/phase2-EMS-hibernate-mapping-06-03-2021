@@ -84,6 +84,7 @@ public class AddProjectwithEmployee extends HttpServlet {
 
 			// create employee
 			Employee employee = new Employee(firstName, lastName, salary, dept);
+			session.persist(employee);
 			
 			
 			// create project 1
@@ -94,8 +95,7 @@ public class AddProjectwithEmployee extends HttpServlet {
 			p1.setEmployee(employee);
 
 
-			// 5. save employee & product
-			session.save(employee);
+			// 5. save employee & product			
 			session.save(p1);
 			session.save(p2);
 
